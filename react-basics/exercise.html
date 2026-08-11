@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+    <style>
+      .button {
+        padding: 12px 28px;
+        font-size: 20px;
+        background-color: rgb(25, 135, 84);
+         color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .button-on {
+        background-color: rgb(25, 135, 84);
+      }
+      .button-off {
+        background-color: rgb(220, 53, 69);
+       
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+      <script src="https://unpkg.com/supersimpledev@8.0.1/chatbot.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+       function Form() {
+      
+        
+       
+        return(
+          <>
+            <h1>Hello, Welcome to my Website!</h1>
+            <input type="email" placeholder="Enter Email" />
+            <input type="password" placeholder="Enter Password" />
+            <button>
+              Signup
+            </button>
+            <button>
+              Login
+            </button>
+
+
+          </>
+        );
+       }
+      
+       function App() {
+     
+        return (
+          <>
+            <Form />
+          </>
+        );
+       }
+
+       const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,174 @@
+
+
+      #root {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .chat-app {
+        width: min(760px, 100%);
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.28);
+        backdrop-filter: blur(12px);
+
+      }
+
+      .chat-header {
+        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        color: white;
+        padding: 24px 24px 18px;
+      }
+
+      .chat-header h1 {
+        margin: 0;
+        font-size: 1.45rem;
+        font-weight: 700;
+      }
+
+      .chat-header p {
+        margin: 6px 0 0;
+        font-size: 0.95rem;
+        opacity: 0.9;
+      }
+
+      .chat-body {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .messages {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px 20px 12px;
+        max-height: 480px;
+        overflow-y: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        background: linear-gradient(180deg, #f8faff 0%, #f4f7ff 100%);
+        min-width: 0;
+      }
+
+      .messages::-webkit-scrollbar {
+        display: none;
+      }
+
+      .message-row {
+        display: flex;
+        align-items: flex-end;
+        gap: 10px;
+        width: 100%;
+        min-width: 0;
+      }
+
+      .message-row.user {
+        justify-content: flex-end;
+      }
+
+      .message-row.user .message-bubble {
+        margin-left: auto;
+      }
+
+      .message-row.user .avatar {
+        order: 2;
+      }
+
+      .avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: white;
+        box-shadow: 0 8px 16px rgba(15, 23, 42, 0.1);
+        flex-shrink: 0;
+      }
+
+      .avatar img {
+        width: 26px;
+        height: 26px;
+      }
+
+      .message-bubble {
+        display: inline-block;
+        max-width: min(70%, 420px);
+        width: fit-content;
+        min-width: 0;
+        padding: 12px 14px;
+        border-radius: 18px;
+        line-height: 1.55;
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        white-space: pre-wrap;
+      }
+      .timestamp{
+            color: #94a3b8;
+    font-size: 12px;
+    font-weight: 800;
+      }
+      .message-row.robot .message-bubble {
+        background: white;
+        color: #0f172a;
+        border-bottom-left-radius: 6px;
+      }
+
+      .message-row.user .message-bubble {
+        background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+        color: white;
+        border-bottom-right-radius: 6px;
+      }
+
+      .input-area {
+        display: flex;
+        gap: 10px;
+        padding: 16px 20px 20px;
+        background: white;
+        border-top: 1px solid #eef2ff;
+      }
+
+      .input-area input {
+        flex: 1;
+        padding: 13px 15px;
+        border: 1px solid #dbe3ff;
+        background-color: #7c3aed ;
+        border-radius: 999px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .input-area input:focus {
+        border-color: #4f46e5;
+        box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+      }
+      .input-area input::placeholder {
+        color: #ffffff;
+      }
+
+      .input-area button {
+        padding: 12px 18px;
+        border-radius: 999px;
+        border: none;
+        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .input-area button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+      }
+
+      .input-area button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+      }

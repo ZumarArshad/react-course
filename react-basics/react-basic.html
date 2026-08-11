@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 45%, #4f46e5 100%);
+      }
+
+      .js-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .form-card {
+        width: min(420px, 100%);
+        padding: 32px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.28);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+      }
+
+      .form-card h1 {
+        margin: 0 0 24px;
+        font-size: 1.7rem;
+        line-height: 1.2;
+        color: #0f172a;
+      }
+
+      .field-group {
+        display: grid;
+        gap: 12px;
+      }
+
+      .field-group input {
+        width: 100%;
+        padding: 14px 16px;
+        border: 1px solid #dbe3ff;
+        border-radius: 14px;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .field-group input:focus {
+        border-color: #4f46e5;
+        box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.14);
+      }
+
+      .show-password-button {
+        width: 100%;
+        padding: 11px 16px;
+        border: 1px solid #dbe3ff;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #eef2ff 0%, #ffffff 100%);
+        color: #4338ca;
+        font-size: 0.95rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease,
+          background 0.2s ease, color 0.2s ease;
+      }
+
+      .show-password-button:hover {
+        transform: translateY(-1px);
+        border-color: #c7d2fe;
+        box-shadow: 0 10px 22px rgba(79, 70, 229, 0.14);
+      }
+
+      .show-password-button:active {
+        transform: translateY(0);
+      }
+
+      .show-password-button.is-visible {
+        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        border-color: transparent;
+        color: white;
+        box-shadow: 0 12px 24px rgba(79, 70, 229, 0.24);
+      }
+
+      .button-row {
+        display: flex;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .button-row button {
+        flex: 1;
+        padding: 13px 16px;
+        border: none;
+        border-radius: 14px;
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      }
+
+      .button-row button:hover {
+        transform: translateY(-1px);
+      }
+
+      .button-row button:active {
+        transform: translateY(0);
+      }
+
+      .signup-button {
+        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        box-shadow: 0 12px 24px rgba(79, 70, 229, 0.22);
+      }
+
+      .login-button {
+        background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+        box-shadow: 0 12px 24px rgba(15, 23, 42, 0.18);
+      }
+
+      @media (max-width: 480px) {
+        .form-card {
+          padding: 24px;
+        }
+
+        .button-row {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      function Form() {
+        const [showPassword, setShowPassword] = React.useState(false);
+
+        return (
+          <div className="form-card">
+            <h1>Hello, welcome to my website!</h1>
+            <div className="field-group">
+              <input type="email" placeholder="Enter email" />
+              <input type={showPassword ? "text" : "password"} placeholder="Enter password" />
+              <button
+                className={`show-password-button ${showPassword ? "is-visible" : ""}`}
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
+            <div className="button-row">
+              <button className="signup-button">Signup</button>
+              <button className="login-button">Login</button>
+            </div>
+          </div>
+        );
+      }
+
+      function App() {
+        return <Form />;
+      }
+
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
