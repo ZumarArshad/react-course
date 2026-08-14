@@ -110,6 +110,9 @@
   align-items: center;
   padding-left: 13px;
   padding-right: 13px;
+  &.active {
+    text-decoration: underline;
+  }
 }
 
 .header .orders-text {
