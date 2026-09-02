@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState, Fragment } from "react";
-import { Header } from "../components/Header.jsx";
+import { Header } from "../../components/Header.jsx";
 import dayjs from "dayjs";
-import { formatMoney } from "../utils/money.js";
+import { formatMoney } from "../../utils/money.js";
 import "./OrdersPage.css";
 export function OrdersPage({ cartItems }) {
   const [orders, setOrders] = useState([]);
@@ -59,12 +59,14 @@ export function OrdersPage({ cartItems }) {
                         </div>
 
                         <div className="product-details">
-                          <div className="product-name">{orderProduct.product.name}</div>
+                          <div className="product-name">
+                            {orderProduct.product.name}
+                          </div>
                           <div className="product-delivery-date">
                             Arriving on:{" "}
-                            {dayjs(orderProduct.product.estimatedDeliveryTimeMs).format(
-                              "MMMM D",
-                            )}
+                            {dayjs(
+                              orderProduct.product.estimatedDeliveryTimeMs,
+                            ).format("MMMM D")}
                           </div>
                           <div className="product-quantity">
                             Quantity: {orderProduct.quantity}
@@ -90,12 +92,10 @@ export function OrdersPage({ cartItems }) {
                       </Fragment>
                     );
                   })}
-               
                 </div>
               </div>
             );
           })}
-        
         </div>
       </div>
     </>
